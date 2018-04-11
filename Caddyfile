@@ -1,0 +1,13 @@
+http://【域名】 {
+  timeouts none
+  redir https://【域名】{url}
+}
+https://【域名】
+{
+  root /usr/local/caddy/frontPage
+  tls  /usr/local/caddy/cert/【域名】.crt /usr/local/caddy/cert/【域名】.key
+  proxy /【路径】 localhost:【端口】 {
+    websocket
+    header_upstream -Origin
+  }
+}
