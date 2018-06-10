@@ -29,7 +29,7 @@ function softInstall(){
 
     # 安装 Caddy
     cd "/usr/local/caddy"
-    wget --no-check-certificate -O "caddy_linux64.tar.gz" "https://caddyserver.com/download/linux/amd64?plugins=http.filemanager&license=personal"
+    wget --no-check-certificate -O "caddy_linux64.tar.gz" "https://caddyserver.com/download/linux/amd64?license=personal&telemetry=off"
     tar zxf "caddy_linux64.tar.gz"
     rm -rf LICENSES.txt README.txt CHANGES.txt init EULA.txt 1> /dev/null
     chmod +x caddy
