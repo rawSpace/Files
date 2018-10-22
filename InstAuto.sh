@@ -6,6 +6,7 @@ DOMAIN=""
 V2PATH=""
 V2PORT=0
 USERID=""
+HTPORT=0
 
 # 安装软件
 function softInstall(){
@@ -62,7 +63,7 @@ function setCaddyfile(){
 
 # 申请证书
 function getCert(){
-    ~/.acme.sh/acme.sh --issue --standalone -d ${DOMAIN} -k ec-256 --force
+    ~/.acme.sh/acme.sh --issue --standalone --httpport ${HTPORT} -d ${DOMAIN} -k ec-256 --force
     ~/.acme.sh/acme.sh --installcert -d ${DOMAIN}                             \
                        --fullchainpath /usr/local/caddy/cert/${DOMAIN}.crt    \
                        --keypath /usr/local/caddy/cert/${DOMAIN}.key --ecc    \
@@ -134,5 +135,6 @@ DOMAIN=$1
 V2PATH=$2
 USERID=$(cat /proc/sys/kernel/random/uuid)
 V2PORT=`expr $RANDOM + 20000`
+HTPORT=19333
 
 main
