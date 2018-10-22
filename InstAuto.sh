@@ -63,7 +63,7 @@ function setCaddyfile(){
 
 # 申请证书
 function getCert(){
-    ~/.acme.sh/acme.sh --issue --standalone --httpport ${HTPORT} -d ${DOMAIN} -k ec-256 --force
+    ~/.acme.sh/acme.sh --issue --standalone -d ${DOMAIN} -k ec-256 --force
     ~/.acme.sh/acme.sh --installcert -d ${DOMAIN}                             \
                        --fullchainpath /usr/local/caddy/cert/${DOMAIN}.crt    \
                        --keypath /usr/local/caddy/cert/${DOMAIN}.key --ecc    \
