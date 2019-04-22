@@ -1,1 +1,1 @@
-# Some files for personal use
+# Files for personal use
